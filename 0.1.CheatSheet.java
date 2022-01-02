@@ -6,7 +6,7 @@ public List<List<Integer>> twoSum(int[] nums, int left, int right, int target) {
             if(left > start && nums[left-1] == nums[left]) {
                 left++; continue;
             }
-            int sum = nums[left] + nusm[right];
+            int sum = nums[left] + nums[right];
             
             if(ans == target) {
                     // System.out.println(i + " " + left + " " + right);
