@@ -1,3 +1,22 @@
+// Two sum give count of total Targets
+public int twoSum(int[] numbers, int left, int right, int target) {
+        int count = 0;
+        while(left < right) {
+            int ans = numbers[left] + numbers[right];
+            if(ans == target) {
+                count++;
+                left++;
+                right--;
+            }
+            else if(ans > target) {
+                right--;
+            }
+            else{
+                left++;
+            }
+        }
+        return count;
+    }
 // Two SUm optimized
 public List<List<Integer>> twoSum(int[] nums, int left, int right, int target) {
         List<List<Integer>> ans = new ArrayList<>();
