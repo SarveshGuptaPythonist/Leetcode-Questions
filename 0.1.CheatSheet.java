@@ -1,3 +1,18 @@
+// Gives total count where sum is greater than targets
+public int twoSumGreater(int[] numbers, int left, int right, int target) {
+        int count = 0;
+        while(left < right) {
+            int ans = numbers[left] + numbers[right];
+            if(ans > target) {
+                count+=right-left;
+                right--;
+            }
+            else {
+                left++;
+            }
+        }
+        return count;
+    }
 // Two sum give count of total Targets
 public int twoSum(int[] numbers, int left, int right, int target) {
         int count = 0;
