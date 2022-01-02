@@ -1,3 +1,33 @@
+// Two SUm optimized
+public List<List<Integer>> twoSum(int[] nums, int left, int right, int target) {
+        List<List<Integer>> ans = new ArrayList<>();
+        int start = left;
+        while(left < right) {
+            if(left > start && nums[left-1] == nums[left]) {
+                left++; continue;
+            }
+            int sum = nums[left] + nusm[right];
+            
+            if(ans == target) {
+                    // System.out.println(i + " " + left + " " + right);
+                    List<Integer> currRes = new ArrayList<>();
+                    currRes.add(nums[left]);
+                    currRes.add(nums[right]);
+                    ans.add(new ArrayList<>(currRes));
+                    left++;
+                    right--;
+                    
+                    
+                }
+                else if(ans > target){
+                    right--;
+                }
+                else{
+                    left++;
+                }
+        }
+        return ans;
+    }
 // GCD
 static int gcd(int a, int b) {
       if (b == 0)
