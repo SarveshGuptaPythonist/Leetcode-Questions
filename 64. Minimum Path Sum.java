@@ -18,7 +18,7 @@ class Solution {
         
         return memo[r][c] = grid[r][c] + Math.min(helper(r + 1, c, m, n, grid, memo), helper(r, c + 1, m, n, grid, memo));
     }
-    // tabulation
+    // tabulation - n * m space
     public int minPathSum(int[][] grid) {
         int m = grid.length, n = grid[0].length;
         // tabulation
@@ -37,5 +37,29 @@ class Solution {
             }
         }
         return dp[0][0];
+    }
+    // tabulation using 2d dp
+    public int minPathSum(int[][] grid) {
+        int m = grid.length, n = grid[0].length;
+
+        int[] dp = new int[n];
+        for(int j = 0; j < dp.length; j++) {
+            dp[j] = Integer.MAX_VALUE;
+        }
+        
+        for(int i = m-1; i >= 0; i--) {
+            for(int j = n - 1; j >= 0; j--) {
+                if(i == m-1  && j == n - 1){
+                    dp[j] = grid[i][j];
+                    continue;
+                }
+                dp[j] = Math.min(
+                    (dp[j]), 
+                    (j + 1 == n ? Integer.MAX_VALUE:dp[j+1])
+                ) + grid[i][j];
+                
+            }
+        }
+        return dp[0];
     }
 }
