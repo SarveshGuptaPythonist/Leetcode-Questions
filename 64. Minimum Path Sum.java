@@ -1,11 +1,12 @@
 class Solution {
+    
     public int minPathSum(int[][] grid) {
         int m = grid.length, n = grid[0].length;
         int[][] memo = new int[m][n];
 
         return helper(0, 0, m, n, grid, memo);
     }
-    
+    //     This method is done using memoization
     public int helper(int r, int c, int m, int n, int[][] grid, int[][] memo) {
         if(r == m || c == n) {
             return Integer.MAX_VALUE;
