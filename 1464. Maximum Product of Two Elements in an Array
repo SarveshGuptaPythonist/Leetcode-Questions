@@ -1,0 +1,26 @@
+import heapq
+
+class MinHeap:
+    def __init__(self, k):
+        self.heap = []
+        self.k = k
+    
+    def push(self, val):
+        heapq.heappush(self.heap, val)
+        if len(self.heap) > self.k:
+            self.pop()
+    
+    def pop(self):
+        return heapq.heappop(self.heap)
+    
+    def __str__(self):
+        return ",".join(list(map(str, self.heap)))
+
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        min_heap = MinHeap(k=2)
+        for num in nums:
+            min_heap.push(num)
+        a = min_heap.pop()
+        b = min_heap.pop()
+        return (a - 1) * (b - 1)
