@@ -1,0 +1,25 @@
+class Solution(object):
+    def merge(self, intervals):
+        """
+        :type intervals: List[List[int]]
+        :rtype: List[List[int]]
+        """
+        intervals = sorted(intervals)
+        curr_idx = 0
+
+        while curr_idx < len(intervals) - 1:
+            i1, j1 = intervals[curr_idx]
+            i2, j2 = intervals[curr_idx + 1]
+
+            if j1 >= j2:
+                intervals[curr_idx] = [i1, j1]
+                intervals.pop(curr_idx + 1)
+            elif j1 >= i2:
+                intervals[curr_idx] = [i1, j2]
+                intervals.pop(curr_idx + 1)
+
+            else:
+                curr_idx += 1 # if no merge happens
+        
+        return intervals
+        
